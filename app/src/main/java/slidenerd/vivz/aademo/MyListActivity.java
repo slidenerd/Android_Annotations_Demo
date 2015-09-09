@@ -1,7 +1,7 @@
 package slidenerd.vivz.aademo;
 
-import android.app.ListActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,21 +10,23 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 // The layout is not set : we use the default layout set in ListActivity
-public class MyListActivity extends ListActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
+public class MyListActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
     String[] bestFoods;
 
     private ListAdapter adapter;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.my_list_activity);
         bestFoods = getResources().getStringArray(R.array.bestFoods);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, bestFoods);
-        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        getListView().setOnItemClickListener(this);
-        getListView().setOnItemLongClickListener(this);
-        setListAdapter(adapter);
+        listView = (ListView) findViewById(R.id.my_list);
+        listView.setOnItemClickListener(this);
+        listView.setOnItemLongClickListener(this);
+        listView.setAdapter(adapter);
     }
 
     void listItemClicked(String food) {
@@ -46,4 +48,5 @@ public class MyListActivity extends ListActivity implements AdapterView.OnItemCl
         listItemLongClicked(bestFoods[position]);
         return true;
     }
+
 }

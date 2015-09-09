@@ -1,8 +1,6 @@
 package slidenerd.vivz.aademo;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -11,7 +9,10 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -24,7 +25,7 @@ import android.widget.Toast;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class MyActivity extends Activity implements View.OnLongClickListener, View.OnClickListener, View.OnTouchListener {
+public class MyActivity extends AppCompatActivity implements View.OnLongClickListener, View.OnClickListener, View.OnTouchListener {
 
     EditText myEditText;
     TextView textView;
@@ -45,11 +46,9 @@ public class MyActivity extends Activity implements View.OnLongClickListener, Vi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.my_activity);
-
-
         myEditText = (EditText) findViewById(R.id.myEditText);
         textView = (TextView) findViewById(R.id.myTextView);
         helloFormat = getString(R.string.hello);
@@ -65,6 +64,36 @@ public class MyActivity extends Activity implements View.OnLongClickListener, Vi
         // windowManager should not be null
         windowManager.getDefaultDisplay();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        boolean returnValue = false;
+        switch (item.getItemId()) {
+            case R.id.item1:
+                handleItem1();
+                returnValue = true;
+                break;
+            case R.id.item2:
+                handleItem2();
+                returnValue = true;
+                break;
+        }
+        return returnValue;
+    }
+
+    private void handleItem2() {
+        Toast.makeText(this, "Item 2 was selected", Toast.LENGTH_SHORT).show();
+    }
+
+    private void handleItem1() {
+        Toast.makeText(this, "Item 1 was selected", Toast.LENGTH_SHORT).show();
     }
 
     public void myButtonClicked(View view) {

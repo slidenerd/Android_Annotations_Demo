@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">AA Demo</string>
     <string name="hello">Hello %s!</string>
+    <string name="menu_item1">Item 1</string>
+    <string name="menu_item2">Item 2</string>
 
     <color name="androidColor">#A4C639</color>
 

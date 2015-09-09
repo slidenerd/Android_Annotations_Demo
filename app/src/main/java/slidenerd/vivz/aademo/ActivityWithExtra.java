@@ -2,12 +2,13 @@ package slidenerd.vivz.aademo;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import java.util.Date;
 
 
-public class ActivityWithExtra extends Activity {
+public class ActivityWithExtra extends AppCompatActivity {
 
     public static final String MY_STRING_EXTRA = "myStringExtra";
     public static final String MY_DATE_EXTRA = "myDateExtra";
