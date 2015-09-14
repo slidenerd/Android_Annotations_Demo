@@ -72,7 +72,7 @@ public class MyActivity extends AppCompatActivity {
 
     @OptionsItem(R.id.item1)
     public void handleItem1() {
-        Toast.makeText(this, "Item 1 was selected", Toast.LENGTH_SHORT).show();
+        SubActivity_.intent(this).start();
     }
 
     @Click(R.id.myButton)

@@ -43,5 +43,4 @@ public class MyListActivity extends AppCompatActivity{
         Toast.makeText(this, "long click: " + food, Toast.LENGTH_SHORT).show();
     }
 
-
 }

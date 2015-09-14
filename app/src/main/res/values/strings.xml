@@ -18,4 +18,8 @@
     </string-array>
 
     <bool name="someBoolean">true</bool>
+    <string name="title_activity_sub">Sub</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>
